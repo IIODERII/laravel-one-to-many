@@ -14,7 +14,7 @@
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
             <label for="category_id">Select Category</label>
-            <select class="form-control @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
+            <select class="form-select @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
                 <option value="">Select a category</option>
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}"

@@ -2,7 +2,7 @@
 @section('content')
     <section class="container">
         <div class="d-flex justify-content-between align-items-center">
-            <h1 class="py-4">Progetto di Oder Risi (<a href="https://github.com/IIODERII" class="clickable d-inline-block"
+            <h1 class="py-4">Progetti di Oder Risi (<a href="https://github.com/IIODERII" class="clickable d-inline-block"
                     style="color: lightblue">Profilo GitHub</a>)</h1>
             <a href="{{ route('admin.projects.create') }}" style="max-width: 200px" class="fw-bold btn btn-primary">Aggiungi un
                 nuovo
