@@ -1,0 +1,29 @@
+@use "./partials/variables" as *;
+
+$fa-font-path: "../fonts/webfonts" !default;
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    font-family: "Lato", sans-serif;
+    background-color: gray;
+    color: white;
+}
+
+.clickable {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:active {
+        transform: scale(0.9);
+    }
+
+    &:hover {
+        transform: scale(1.02);
+    }
+}
