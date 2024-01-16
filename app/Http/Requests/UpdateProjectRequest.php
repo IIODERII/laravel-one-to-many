@@ -28,6 +28,7 @@ class UpdateProjectRequest extends FormRequest
             'image' => 'nullable|image',
             'url' => 'required|url',
             'tecnologies' => 'nullable',
+            'category_id' => 'nullable |exists:types,id',
         ];
     }
     public function messages()
