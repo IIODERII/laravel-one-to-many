@@ -8,6 +8,8 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
 
 class ProjectController extends Controller
 {
@@ -25,7 +27,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $categories = Category::all();
+        return view('admin.projects.create', compact('categories'));
     }
 
     /**
@@ -35,7 +38,9 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
         $slug = Str::slug($data['title'], '-');
-
+        $userId = Auth::id();
+        $data['user_id'] = $userId;
+        $data['category_id'] = $request->category_id;
         $data['slug'] = $slug;
         if ($request->hasFile('image')) {
             $path = Storage::put('uploads', $request->image);
@@ -59,7 +64,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $categories = Category::all();
+        return view('admin.projects.edit', compact('project', 'categories'));
     }
 
     /**
@@ -74,6 +80,7 @@ class ProjectController extends Controller
             $slug = $project->slug;
         }
         $data['slug'] = $slug;
+        $data['category_id'] = $request->category_id;
         if ($request->hasFile('image')) {
             if (Storage::exists($project->image)) {
                 Storage::delete($project->image);

@@ -46,7 +46,11 @@
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link text-white"
-                                href="{{ url('/admin') }}">{{ __('Visualizza i progetti') }}</a>
+                                href="{{ url('/admin/projects') }}">{{ __('Visualizza i progetti') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white"
+                                href="{{ url('/admin/categories') }}">{{ __('Visualizza le categorie') }}</a>
                         </li>
                     </ul>
 
@@ -59,7 +63,8 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link  text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link  text-white"
+                                        href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else

@@ -33,6 +33,16 @@ $technologies = explode(' ', $project->tecnologies);
                         <li>{{ $technology }}</li>
                     @endforeach
                 </ul>
+                <div>
+                    <h4>Tipo di progetto:</h4>
+                    <p>
+                        @if ($project->category)
+                            {{ $project->category->name }}
+                        @else
+                            Nessuna
+                        @endif
+                    </p>
+                </div>
             </div>
             <div class="col-9">
                 <p>{{ $project->description }}</p>

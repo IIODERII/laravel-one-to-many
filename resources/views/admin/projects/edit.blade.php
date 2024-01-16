@@ -13,6 +13,18 @@
             @error('title')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
+            <label for="category_id">Select Category</label>
+            <select class="form-control @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
+                <option value="">Select a category</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}"
+                        {{ old('category_id', $project->category_id) == $category->id ? 'selected' : '' }}>
+                        {{ $category->name }}</option>
+                @endforeach
+            </select>
+            @error('category_id')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
             <label for="description">Descrizione</label>
             <textarea rows="8" id="description" name="description"
                 class="form-control @error('description') is-invalid @enderror">{{ old('description', $project->description) }}</textarea>
